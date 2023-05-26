@@ -1,0 +1,71 @@
+{
+  "name": "vite-plugin-git-info",
+  "type": "module",
+  "version": "0.0.1",
+  "description": "Automatically put the git info file in your project dist folder",
+  "license": "MIT",
+  "homepage": "https://github.com/zhuchaoling/vite-plugin-git-info#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zhuchaoling/vite-plugin-git-info.git"
+  },
+  "bugs": "https://github.com/zhuchaoling/vite-plugin-git-info/issues",
+  "keywords": [
+    "vite-plugin",
+    "version"
+  ],
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.mjs"
+    }
+  },
+  "main": "./dist/index.mjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "typesVersions": {
+    "*": {
+      "*": [
+        "./dist/*",
+        "./dist/index.d.ts"
+      ]
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "rimraf dist && unbuild",
+    "dev": "unbuild --stub",
+    "lint": "eslint .",
+    "view": "vite demo",
+    "prepublishOnly": "nr build",
+    "release": "bumpp && npm publish",
+    "start": "esno src/index.ts",
+    "test": "vitest",
+    "typecheck": "tsc --noEmit"
+  },
+  "peerDependencies": {
+    "vite": "^2.9.0 || ^3.0.0 || ^4.0.0"
+  },
+  "dependencies": {
+    "debug": "^4.3.4"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^0.25.2",
+    "@antfu/ni": "^0.16.3",
+    "@antfu/utils": "^0.5.2",
+    "@types/debug": "^4.1.7",
+    "@types/node": "^18.0.3",
+    "bumpp": "^8.2.1",
+    "eslint": "^8.19.0",
+    "esno": "^0.16.3",
+    "rimraf": "^3.0.2",
+    "typescript": "^4.7.4",
+    "unbuild": "^0.7.4",
+    "vite": "^3.0.0",
+    "vitest": "^0.18.0"
+  }
+}
