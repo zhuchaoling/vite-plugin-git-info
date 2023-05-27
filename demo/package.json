@@ -1,8 +1,7 @@
 {
-  "name": "playground",
+  "name": "vite-plugin-git-info-test",
   "type": "module",
   "version": "0.0.0",
-  "private": true,
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
@@ -11,5 +10,8 @@
   "devDependencies": {
     "typescript": "^4.6.4",
     "vite": "^3.0.0"
+  },
+  "dependencies": {
+    "vite-plugin-git-info": "^0.0.3"
   }
 }

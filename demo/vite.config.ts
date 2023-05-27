@@ -1,8 +1,9 @@
 import { defineConfig } from 'vite'
-import versionPlugin from '../src/index'
+// import viteGitInfoPlugin from '../src'
+import viteGitInfoPlugin from 'vite-plugin-git-info'
 
 export default defineConfig({
   plugins: [
-    versionPlugin(),
+    viteGitInfoPlugin(),
   ],
 })

@@ -7,10 +7,9 @@ function vitePluginVersion(options: any = {}): Plugin {
   } = options
 
   return {
-    name: 'vite-plugin-version',
+    name: 'vite-plugin-git-info',
     apply: 'build',
     async buildStart() {
-
       try {
         this.emitFile({
           fileName,
@@ -26,21 +25,19 @@ function vitePluginVersion(options: any = {}): Plugin {
 }
 
 function getVersion() {
+  var repository = execSync('git ls-remote --get-url').toString().trim()
   var commit = execSync("git show -s --format=%H").toString().trim()
-  var user = (execSync("git show -s --format=%cn") || '').toString().trim()
-  var email = execSync("git show -s --format=%ce").toString().trim()
   var commit_date = formatDate(new Date(execSync(`git show -s --format=%cd`).toString()))
   var branch = execSync("git rev-parse --abbrev-ref HEAD").toString().replace(/\s+/, "")
   var build_date = formatDate(new Date())
   var tag = execSync("git describe --long --tags --dirty --always").toString().trim()
   return {
+    repository,
     branch,
     commit,
-    user,
     build_date,
     commit_date,
     tag,
-    email,
   }
 }
 
